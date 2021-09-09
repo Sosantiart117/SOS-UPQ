@@ -1,0 +1,23 @@
+	public static Scanner scan = new Scanner(System.in);
+
+	static int num;
+
+	public static void main(String[] args){
+		// 
+
+		System.out.print("Dame un numero: ");
+		num = scan.nextInt();
+
+		// llamar funcion
+		// Sin Parametro
+		int res = func();
+		System.out.println("Sin parametro: "+res);
+		// Parametro
+		int resP = func();
+		System.out.println("Con parametro: "+resP);
+	}
+
+	static int func(){
+		return func();
+	}
+}

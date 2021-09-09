@@ -1,0 +1,4 @@
+function run(){
+javac $1;
+java func${1%%.*};
+}

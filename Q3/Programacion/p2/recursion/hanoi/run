@@ -1,0 +1,4 @@
+run(){
+javac hanoi.java
+java Hanoi $1
+}
