@@ -1,8 +1,11 @@
+package primerParcial;
+
 import java.util.Scanner;
 import java.util.Arrays;
 
-// @author 
-// Santiago Orozco (Sos)
+/*
+ * @author Santiago Orozco
+ */
 
 public class Calculadora {
 
