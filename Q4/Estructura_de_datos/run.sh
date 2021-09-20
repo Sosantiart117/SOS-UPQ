@@ -1,12 +1,26 @@
 #!/bin/bash
 
 compile(){
-	javac -d ./classes/ ./src/$1
+	javac -d ./classes/ ./src/$1/*
 }
 
-run(){
+execute(){
 	java -cp ./classes/ $1
 }
 
-compile $1
-run $1
+selectProject(){
+	select dir in $(ls ./src/)
+	do
+		compile $dir
+		selectExec $dir
+	done
+}
+
+selectExec(){
+	select class in $(ls -1 ./classes/$1 | grep -i "prueba*")
+	do
+		execute ${1}.${class%.class} 
+	done
+}
+
+selectProject
