@@ -35,6 +35,13 @@ public class CajaRegistradora {
 		9129.99
 	};
 	private int[] INVENTARIO = { 5,7,1,6,3,1,5 };
+	private String STYLE = "<style>"+
+		"table{width:100%;text-align:center;}"+
+		"td{text-align:center}"+
+		" .articulo{text-align:left;width:50%;padding-left:10px;}"+
+		" .precio{text-align: right;width: 20%;}"+
+		" .precio span{float:left;}"+
+		"</style>";
 
 	// variables 
 	private double[] TOTALES ;
@@ -52,7 +59,7 @@ public class CajaRegistradora {
 	public void Menu(){
 		// Entry Point
 		String menu = 
-			"<html>"+
+			"<html>"+STYLE+
 			"<h1>Bienvenido a "+NOMBRE+"</h1>"+
 			"<hr><ol>"+
 			"<li>Comprar</li>"+
@@ -103,7 +110,7 @@ public class CajaRegistradora {
 		int articulo = 0;
 		while(true){
 			String ofrecimiento =
-				"<html>"+
+				"<html>"+STYLE+
 				"<h2>Catalogo:</h2><hr>"+
 				"<table>"+
 				"<tr>"+
@@ -117,9 +124,9 @@ public class CajaRegistradora {
 				ofrecimiento +=
 					"<tr>"+
 					"<td>"+(i+1)+"</tb>"+
-					"<td>"+CATALOGO[i]+"</tb>"+
-					"<td>"+Integer.toString(INVENTARIO[i])+"</tb>"+
-					"<td>$"+Double.toString(PRECIOS[i])+"</td>"+
+					"<td class=\"articulo\">"+CATALOGO[i]+"</tb>"+
+					"<td class=\"cantidad\">"+Integer.toString(INVENTARIO[i])+"</tb>"+
+					"<td class=\"precio\"><span>$</span>"+Double.toString(PRECIOS[i])+"</td>"+
 					"</tr>";
 
 			ofrecimiento += 
@@ -180,7 +187,7 @@ public class CajaRegistradora {
 		// pedir cantidad
 		String cantidad = "";
 		String mensaje = 
-				"<html>"+
+				"<html>"+STYLE+
 				"<h2>¿Cuantos desea agregar?(0 para cancelar):</h2><hr>"+
 				"<table>"+
 				"<tr>"+
@@ -239,8 +246,8 @@ public class CajaRegistradora {
 		}
 
 		String ticket =
-			"<html>"+
-			"<h2>Catalogo:</h2><hr>"+
+			"<html>"+ STYLE +
+			"<h2>"+NOMBRE+":</h2><hr>"+
 			"<table>"+
 			"<tr>"+
 			"<th> # </th>"+
@@ -257,10 +264,10 @@ public class CajaRegistradora {
 			ticket +=
 				"<tr>"+
 				"<td>"+(++e)+"</tb>"+
-				"<td>"+CATALOGO[i]+"</tb>"+
-				"<td>"+Integer.toString(CARRITO[i])+"</tb>"+
-				"<td>$"+Double.toString(PRECIOS[i])+"</td>"+
-				"<td>$"+Double.toString(TOTALES[i])+"</td>"+
+				"<td class=\"articulo\">"+CATALOGO[i]+"</tb>"+
+				"<td class=\"cantidad\">"+Integer.toString(CARRITO[i])+"</tb>"+
+				"<td class=\"precio\"><span>$</span>"+Double.toString(PRECIOS[i])+"</td>"+
+				"<td class=\"precio\"><span>$</span>"+Double.toString(TOTALES[i])+"</td>"+
 				"</tr>";
 			total+=TOTALES[i];
 		}
@@ -273,7 +280,7 @@ public class CajaRegistradora {
 		JOptionPane.showMessageDialog( 
 			null, 
 			ticket,
-			"GRACIAS POR SU COMPRA",
+			"Ticket",
 			JOptionPane.INFORMATION_MESSAGE);
 		JOptionPane.showMessageDialog( 
 			null, 
