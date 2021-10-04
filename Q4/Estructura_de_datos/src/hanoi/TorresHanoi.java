@@ -25,10 +25,12 @@ public class TorresHanoi{
 		this(7);
 	}
 
+	@SuppressWarnings("unchecked")
 	public TorresHanoi(int size){
 		this.SIZE = size;
 		// vacia todo
 		this.MOVES = 0;
+		this.TORRES = (Stack<Integer>[]) new Stack<?>[3];
 		this.TORRES[0] = new Stack<Integer>();
 		this.TORRES[1] = new Stack<Integer>();
 		this.TORRES[2] = new Stack<Integer>();

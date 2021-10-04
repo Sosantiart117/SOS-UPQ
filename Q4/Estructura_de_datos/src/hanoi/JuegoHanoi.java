@@ -8,9 +8,19 @@ import java.awt.event.ActionListener;
 
 public class JuegoHanoi extends JFrame implements ActionListener{
 
+	public static TorresHanoi HANOI;
+
 	private int WINSIZE = 80;
 
+	private boolean PRESSED;
+	private int LASTID;
+
 	public JuegoHanoi(){
+		this(7);
+	}
+
+	public JuegoHanoi(int lvl){
+		HANOI = new TorresHanoi(lvl);
 		this.setTitle("TorresHanoi"); //Nombre de la ventana
 		this.setSize(WINSIZE*16,WINSIZE*10); // x y 
 		this.setLocationRelativeTo(null); //aparece en el centro del moitor
@@ -18,14 +28,30 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 		this.getContentPane().setBackground(Main.CBASE); //hacerle un color base
 		this.setLayout(new BorderLayout(10,0));
 
+
 		this.add(new PanelJuego(this),BorderLayout.CENTER);
 		this.add(new PanelOpciones(this), BorderLayout.WEST);
+
+		this.PRESSED = false;
 
 		this.setVisible(true);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e){
+		switch(e.getActionCommand()){
+			case"move":
+				TorreButton torre = (TorreButton) e.getSource();
+				if(!PRESSED){
+					PRESSED = true;
+					LASTID = torre.ID;
+					break;
+				}
+				PRESSED = false;
+				HANOI.move(LASTID, torre.ID);
+				PanelJuego.updateTorres();
+				break;
+		}
 
 	}
 
