@@ -29,13 +29,13 @@ public class MenuHanoi implements ActionListener {
 		// ADD title
 		JLabel title = new JLabel("<html>Torres<br>de<br>Hanoi<html>");
 		title.setBorder(BorderFactory.createRaisedBevelBorder());
-		title.setForeground(Color.WHITE);
-		title.setFont(Main.FONT_BIG);
+		title.setHorizontalAlignment(JLabel.CENTER);
 		title.setHorizontalTextPosition(JLabel.CENTER);
 		title.setVerticalTextPosition(JLabel.TOP);
 		title.setForeground(Color.WHITE);
+		title.setFont(Main.FONT_BIG);
+		title.setForeground(Color.WHITE);
 		title.setIconTextGap(50);
-		title.setHorizontalAlignment(JLabel.CENTER);
 		title.setBounds(150, 45, 200, 200);
 		frame.add(title);
 

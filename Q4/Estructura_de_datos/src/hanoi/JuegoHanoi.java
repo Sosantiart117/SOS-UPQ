@@ -23,7 +23,7 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 		this.WINSIZE = Main.WINSIZE;
 		HANOI = new TorresHanoi(lvl);
 		this.setTitle("TorresHanoi"); //Nombre de la ventana
-		this.setSize(WINSIZE*16,WINSIZE*10); // x y 
+		this.setSize(WINSIZE*16,WINSIZE*9); // x y 
 		this.setLocationRelativeTo(null); //aparece en el centro del moitor
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Termina cuando cierre
 		this.getContentPane().setBackground(Main.CBASE); //hacerle un color base

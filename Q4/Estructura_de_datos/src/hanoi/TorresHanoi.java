@@ -19,7 +19,7 @@ public class TorresHanoi{
 	 *
 	 */
 	private Stack<Integer>[] TORRES;
-	public int SIZE, MOVES, IDEAL, A=0, B=1, C=2;
+	public int SIZE, MOVES, IDEAL;
 
 	public TorresHanoi(){
 		this(7);

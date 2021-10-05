@@ -11,6 +11,7 @@ public class Main{
 	public static Font FONT_BIG = new Font("Arial",Font.BOLD,40);
 	public static Font FONT_NORMAL = new Font("Arial",Font.BOLD,16);
 	public static int WINSIZE = 80;
+	public static String[] NTORRES = {"A","B","C"};
 
 	public static void main(String[] args){
 			// TorresHanoi.main(new String[0]);
