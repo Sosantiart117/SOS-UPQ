@@ -11,11 +11,11 @@ public class TorreButton extends JToggleButton{
 
 	public TorreButton(ActionListener act,int id){
 		super();
+		// Style
 		this.setFocusable(false);
+		Main.styleButton(this);
 		this.setFont(Main.FONT_BIG);
-		this.setIcon(null);
-		this.setBackground(Main.CBASE);
-		this.setSelectedIcon(null);
+		// Functioning
 		this.ID = id;
 		this.updateTorre();
 		this.addActionListener(act);

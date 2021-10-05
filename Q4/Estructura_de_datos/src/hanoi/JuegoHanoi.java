@@ -10,7 +10,7 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 
 	public static TorresHanoi HANOI;
 
-	private int WINSIZE = 80;
+	private int WINSIZE;
 
 	private boolean PRESSED;
 	private int LASTID;
@@ -20,6 +20,7 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 	}
 
 	public JuegoHanoi(int lvl){
+		this.WINSIZE = Main.WINSIZE;
 		HANOI = new TorresHanoi(lvl);
 		this.setTitle("TorresHanoi"); //Nombre de la ventana
 		this.setSize(WINSIZE*16,WINSIZE*10); // x y 
@@ -50,6 +51,8 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 				PRESSED = false;
 				HANOI.move(LASTID, torre.ID);
 				PanelJuego.updateTorres();
+				break;
+			case"difficulty":
 				break;
 		}
 

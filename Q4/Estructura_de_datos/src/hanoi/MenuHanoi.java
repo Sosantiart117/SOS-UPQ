@@ -1,5 +1,6 @@
 package hanoi;
 
+import javax.swing.border.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +14,6 @@ import java.awt.event.ActionListener;
 public class MenuHanoi implements ActionListener {
 
 	private JFrame frame;
-
 	public MenuHanoi(){
 
 		frame = new JFrame();
@@ -42,30 +42,36 @@ public class MenuHanoi implements ActionListener {
 		// ADD Buttons
 		// Incio
 		JButton start = new JButton("Inicio");
-		start.addActionListener(this);
 		start.setActionCommand("start");
 		start.setBounds(200,295,100,30);
+		styleButton(start);
 		frame.add(start);
 		// Reglas
 		JButton rules = new JButton("Reglas");
-		rules.addActionListener(this);
 		rules.setActionCommand("rules");
 		rules.setBounds(200,335,100,30);
+		styleButton(rules);
 		frame.add(rules);
 		// Creditos
 		JButton credits = new JButton("Creditos");
-		credits.addActionListener(this);
 		credits.setActionCommand("credits");
 		credits.setBounds(200,375,100,30);
+		styleButton(credits);
 		frame.add(credits);
 		// Salir
 		JButton end = new JButton("Salir");
-		end.addActionListener(this);
 		end.setActionCommand("end");
 		end.setBounds(200,415,100,30);
+		styleButton(end);
 		frame.add(end);
 
 		frame.setVisible(true);
+	}
+
+	private void styleButton(JButton button){
+		button.addActionListener(this);
+		Main.styleButton(button);
+		button.setBorder(BorderFactory.createRaisedSoftBevelBorder());
 	}
 
 	@Override

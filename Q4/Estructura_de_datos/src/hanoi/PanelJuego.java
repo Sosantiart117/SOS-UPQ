@@ -22,6 +22,11 @@ public class PanelJuego extends JPanel{
 	public static void updateTorres(){
 		for(int i=0; i<3;i++){
 			TORRES[i].updateTorre();
+			try{
+				Thread.sleep(40);
+			} catch(InterruptedException e){
+				e.printStackTrace();
+			}
 			TORRES[i].setSelected(false);
 		}
 	}
