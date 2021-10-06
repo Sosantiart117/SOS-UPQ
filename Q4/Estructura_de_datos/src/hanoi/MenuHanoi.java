@@ -78,7 +78,7 @@ public class MenuHanoi implements ActionListener {
 
 		switch(e.getActionCommand()){
 			case "start":
-				new JuegoHanoi();
+				new JuegoHanoi(Main.getDificulty());
 				frame.dispose();
 				break;
 			case "credits":

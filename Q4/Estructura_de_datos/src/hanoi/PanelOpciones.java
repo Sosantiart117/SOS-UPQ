@@ -17,6 +17,7 @@ public class PanelOpciones extends JPanel{
 	private ActionListener ACT;
 	private static JTextArea LOG;
 	private static JLabel TMOVES;
+	private static JLabel PMOVES;
 
 	public PanelOpciones(ActionListener act){
 		int size = Main.WINSIZE;
@@ -42,13 +43,13 @@ public class PanelOpciones extends JPanel{
 					));
 		this.add(TMOVES);
 		// Minimos movimientos
-		JLabel pMoves = new JLabel("Min: "+JuegoHanoi.HANOI.IDEAL);
-		Main.styleLabel(pMoves);
-		pMoves.setFont(Main.FONT_NORMAL);
-		pMoves.setOpaque(false);
-		pMoves.setForeground(Main.CBASE);
-		pMoves.setBounds((size*3)/2, size/2, size, size/2);
-		this.add(pMoves);
+		PMOVES = new JLabel("Min: "+JuegoHanoi.HANOI.IDEAL);
+		Main.styleLabel(PMOVES);
+		PMOVES.setFont(Main.FONT_NORMAL);
+		PMOVES.setOpaque(false);
+		PMOVES.setForeground(Main.CBASE);
+		PMOVES.setBounds((size*3)/2, size/2, size, size/2);
+		this.add(PMOVES);
 
 		// Botones
 		JButton redo = new JButton("Reiniciar");
@@ -102,6 +103,7 @@ public class PanelOpciones extends JPanel{
 	public static void update(){
 		TMOVES.setText(Integer.toString(JuegoHanoi.HANOI.MOVES));
 		if(JuegoHanoi.HANOI.hasWon()) LOG.append("Ganado!\n");
+		PMOVES.setText("Min: "+JuegoHanoi.HANOI.IDEAL);
 	}
 
 	public static void addLog(String text){

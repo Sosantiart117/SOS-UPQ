@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Arrays;
 
 public class Main{
 
@@ -76,6 +77,18 @@ public class Main{
 				"<p>Nos vemos pronto!</p>"+
 				"</html>");
 		System.exit(0);
+	}
+	public static int getDificulty(){
+		String[] difs = {"Facil(3)   [default]", "Medio(5)","Dificl(7)"};
+		Object dif = JOptionPane.showInputDialog(
+				null,
+				"Escoge Dificultad:",
+				"Dificultades",
+				JOptionPane.INFORMATION_MESSAGE,
+				null,
+				difs,
+				difs[0]);
+		return (Arrays.asList(difs).indexOf(dif.toString())*2)+3;
 	}
 
 }

@@ -49,6 +49,7 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 
 	private void restart(){
 		this.remove(this.JUEGO);
+		this.LVL = Main.getDificulty();
 		HANOI = new TorresHanoi(this.LVL);
 		PanelOpciones.addLog("Reinicio\n");
 		this.JUEGO = new PanelJuego(this);
@@ -71,8 +72,6 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 				PanelJuego.updateTorres();
 				PanelOpciones.update();
 				if(HANOI.hasWon()) win();
-				break;
-			case"difficulty":
 				break;
 			case "restart":
 				restart();
