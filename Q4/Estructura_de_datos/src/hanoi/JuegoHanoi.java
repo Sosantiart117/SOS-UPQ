@@ -84,7 +84,7 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 				Main.rules(this);
 				break;
 			case "credits":
-				Main.rules(this);
+				Main.credits(this);
 				break;
 		}
 
