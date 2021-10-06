@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 import javax.swing.plaf.DimensionUIResource;
 
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
@@ -41,19 +40,16 @@ public class PanelJuego extends JPanel{
 			TORRES[i].setSelected(false);
 		}
 	}
+	public void won(){
+		for(int i=0;i<3;i++)
+			TORRES[i].setEnabled(false);
+	}
 
 	private JLabel makeTLabel(int i){
 		JLabel etiqueta = new JLabel(Main.NTORRES[i]);
+		Main.styleLabel(etiqueta);
 		etiqueta.setPreferredSize(new DimensionUIResource(0,Main.WINSIZE));
-		etiqueta.setFocusable(false);
-		etiqueta.setOpaque(true);
-		etiqueta.setFont(Main.FONT_BIG);
-		etiqueta.setBackground(Main.CBASE);
-		etiqueta.setForeground(Color.WHITE);
 		etiqueta.setBorder(BorderFactory.createRaisedBevelBorder());
-		etiqueta.setHorizontalAlignment(JLabel.CENTER);
-		etiqueta.setHorizontalTextPosition(JLabel.CENTER);
-		etiqueta.setVerticalTextPosition(JLabel.TOP);
 		return etiqueta;
 	}
 

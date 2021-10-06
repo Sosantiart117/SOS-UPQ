@@ -1,6 +1,7 @@
 package hanoi;
 
 import javax.swing.AbstractButton;
+import javax.swing.JLabel;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -23,6 +24,17 @@ public class Main{
 		button.setBackground(Main.CBASE);
 		button.setForeground(Color.WHITE);
 		button.setFocusPainted(false);
+	}
+
+	public static void styleLabel(JLabel etiqueta){
+		etiqueta.setFocusable(false);
+		etiqueta.setOpaque(true);
+		etiqueta.setFont(Main.FONT_BIG);
+		etiqueta.setBackground(Main.CBASE);
+		etiqueta.setForeground(Color.WHITE);
+		etiqueta.setHorizontalAlignment(JLabel.CENTER);
+		etiqueta.setHorizontalTextPosition(JLabel.CENTER);
+		etiqueta.setVerticalTextPosition(JLabel.CENTER);
 	}
 
 }

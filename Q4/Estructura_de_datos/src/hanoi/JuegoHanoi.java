@@ -1,6 +1,7 @@
 package hanoi;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -14,14 +15,17 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 
 	private boolean PRESSED;
 	private int LASTID;
+	private int LVL;
+	private PanelJuego JUEGO;
 
 	public JuegoHanoi(){
-		this(7);
+		this(3);
 	}
 
 	public JuegoHanoi(int lvl){
 		this.WINSIZE = Main.WINSIZE;
-		HANOI = new TorresHanoi(lvl);
+		this.LVL = lvl;
+		HANOI = new TorresHanoi(this.LVL);
 		this.setTitle("TorresHanoi"); //Nombre de la ventana
 		this.setSize(WINSIZE*16,WINSIZE*9); // x y 
 		this.setLocationRelativeTo(null); //aparece en el centro del moitor
@@ -29,13 +33,26 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 		this.getContentPane().setBackground(Main.CBASE); //hacerle un color base
 		this.setLayout(new BorderLayout(10,0));
 
-
-		this.add(new PanelJuego(this),BorderLayout.CENTER);
+		this.JUEGO = new PanelJuego(this);
+		this.add(this.JUEGO, BorderLayout.CENTER);
 		this.add(new PanelOpciones(this), BorderLayout.WEST);
 
 		this.PRESSED = false;
 
 		this.setVisible(true);
+	}
+
+	private void win(){
+		JUEGO.won();
+		JOptionPane.showMessageDialog(this, "<html><h1>Has Ganado!</h1></html>");
+	}
+
+	private void restart(){
+		this.remove(this.JUEGO);
+		HANOI = new TorresHanoi(this.LVL);
+		PanelOpciones.addLog("Reinicio\n");
+		this.JUEGO = new PanelJuego(this);
+		this.add(this.JUEGO, BorderLayout.CENTER);
 	}
 
 	@Override
@@ -49,10 +66,19 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 					break;
 				}
 				PRESSED = false;
-				HANOI.move(LASTID, torre.ID);
+				if(HANOI.move(LASTID, torre.ID))
+					PanelOpciones.addLog(LASTID,torre.ID);
 				PanelJuego.updateTorres();
+				PanelOpciones.update();
+				if(HANOI.hasWon()) win();
 				break;
 			case"difficulty":
+				break;
+			case "restart":
+				restart();
+				break;
+			case "out":
+				this.dispose();
 				break;
 		}
 

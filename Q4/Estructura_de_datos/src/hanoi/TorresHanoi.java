@@ -37,21 +37,26 @@ public class TorresHanoi{
 		// Llena la primer torre 
 		for(int i = this.SIZE; i>0; i-- )
 			this.TORRES[0].push(i);
-		this.IDEAL = (int) Math.pow(2, MOVES) - 1;
+		this.IDEAL = (int) Math.pow(2, this.SIZE) - 1;
 	}
 
-	public void move(int from, int to){
-		move(TORRES[from], TORRES[to]);
+	public boolean move(int from, int to){
+		return move(TORRES[from], TORRES[to]);
 	}
 
 	public int[] getTower(int torre){
 		return getTower(TORRES[torre]);
 	}
 
-	private void move(Stack<Integer> orig, Stack<Integer> dest){
-		if(!isValidMove(orig, dest)) return;
+	public boolean hasWon(){
+		return TORRES[2].size() == SIZE;
+	}
+
+	private boolean move(Stack<Integer> orig, Stack<Integer> dest){
+		if(!isValidMove(orig, dest)) return false;
 		dest.push(orig.pop());
 		MOVES++;
+		return true;
 	}
 
 	private int[] getTower(Stack<Integer> torre){
