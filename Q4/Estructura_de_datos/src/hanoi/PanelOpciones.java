@@ -4,7 +4,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
@@ -85,6 +84,19 @@ public class PanelOpciones extends JPanel{
 						Main.CBASE
 					));
 		this.add(logScroller);
+		// Aux
+		JButton help = new JButton("?");
+		Main.styleButton(help);
+		help.addActionListener(this.ACT);
+		help.setActionCommand("rules");
+		help.setBounds(10, 10, (size/2)+10, size/2);
+		this.add(help);
+		JButton sos = new JButton("©");
+		Main.styleButton(sos);
+		sos.addActionListener(this.ACT);
+		sos.setActionCommand("credits");
+		sos.setBounds((size*4)-((size/2)+20), 10, (size/2)+10, size/2);
+		this.add(sos);
 	}
 
 	public static void update(){

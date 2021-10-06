@@ -1,6 +1,5 @@
 package hanoi;
 
-import javax.swing.border.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -83,43 +82,14 @@ public class MenuHanoi implements ActionListener {
 				frame.dispose();
 				break;
 			case "credits":
-				JOptionPane.showMessageDialog(
-						this.frame,
-						"<html>"+
-						"<style>*,body,html{text-align:center}</style>"+
-						"<h1>Gracias!</h1><hr>"+
-						"<p>Sos:Santiago Orozco S.<br>"+
-						"Puedes encontrar mas en "+
-						"<a>Github@Sosantiart117</a>"+
-						"</p>"+
-						"</html>");
+				Main.credits(this.frame);
 				break;
 			case "rules":
-				JOptionPane.showMessageDialog(
-						this.frame,
-						"<html>"+
-						"<style>*,body,html{text-align:center}</style>"+
-						"<h2>Reglas:</h2><hr>"+
-						"<ul>"+
-						"<li>Tienes que pasar todos los discos de A -> C</li>"+
-						"<li><strong>Unicamente</strong>puedes mover "+
-						"<strong>1</strong> disco a la vez</li>"+
-						"<li>Un disco <strong>NUNCA</strong>"+
-						" puede quedar sobre un disco mas pequeño</li>"+
-						"<li>Solo puedes tomar el disco de arriba</li>"+
-						"</ul>"+
-						"</html>");
+				Main.rules(this.frame);
 				break;
 			case "end":
 				frame.dispose();
-				JOptionPane.showMessageDialog(
-						null,
-						"<html>"+
-						"<style>*,body,html{text-align:center}</style>"+
-						"<h2>Gracias por jugar:</h2><hr>"+
-						"<p>Nos vemos pronto!</p>"+
-						"</html>");
-				System.exit(0);
+				Main.exit();
 				break;
 		}
 	}

@@ -2,6 +2,8 @@ package hanoi;
 
 import javax.swing.AbstractButton;
 import javax.swing.JLabel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -35,6 +37,45 @@ public class Main{
 		etiqueta.setHorizontalAlignment(JLabel.CENTER);
 		etiqueta.setHorizontalTextPosition(JLabel.CENTER);
 		etiqueta.setVerticalTextPosition(JLabel.CENTER);
+	}
+
+	public static void rules(JFrame parent){
+		JOptionPane.showMessageDialog(
+				parent,
+				"<html>"+
+				"<style>*,body,html{text-align:center}</style>"+
+				"<h2>Reglas:</h2><hr>"+
+				"<ul>"+
+				"<li>Tienes que pasar todos los discos de A -> C</li>"+
+				"<li><strong>Unicamente</strong>puedes mover "+
+				"<strong>1</strong> disco a la vez</li>"+
+				"<li>Un disco <strong>NUNCA</strong>"+
+				" puede quedar sobre un disco mas pequeño</li>"+
+				"<li>Solo puedes tomar el disco de arriba</li>"+
+				"</ul>"+
+				"</html>");
+	}
+	public static void credits(JFrame parent){
+		JOptionPane.showMessageDialog(
+				parent,
+				"<html>"+
+				"<style>*,body,html{text-align:center}</style>"+
+				"<h1>Gracias!</h1><hr>"+
+				"<p>Sos:Santiago Orozco S.<br>"+
+				"Puedes encontrar mas en "+
+				"<a>Github@Sosantiart117</a>"+
+				"</p>"+
+				"</html>");
+	}
+	public static void exit(){
+		JOptionPane.showMessageDialog(
+				null,
+				"<html>"+
+				"<style>*,body,html{text-align:center}</style>"+
+				"<h2>Gracias por jugar:</h2><hr>"+
+				"<p>Nos vemos pronto!</p>"+
+				"</html>");
+		System.exit(0);
 	}
 
 }

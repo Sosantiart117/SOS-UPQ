@@ -19,7 +19,7 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 	private PanelJuego JUEGO;
 
 	public JuegoHanoi(){
-		this(3);
+		this(7);
 	}
 
 	public JuegoHanoi(int lvl){
@@ -79,6 +79,13 @@ public class JuegoHanoi extends JFrame implements ActionListener{
 				break;
 			case "out":
 				this.dispose();
+				Main.exit();
+				break;
+			case "rules":
+				Main.rules(this);
+				break;
+			case "credits":
+				Main.rules(this);
 				break;
 		}
 
