@@ -88,6 +88,7 @@ public class Main{
 				null,
 				difs,
 				difs[0]);
+		if(dif == null) return 3;
 		return (Arrays.asList(difs).indexOf(dif.toString())*2)+3;
 	}
 

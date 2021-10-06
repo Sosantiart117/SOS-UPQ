@@ -114,7 +114,12 @@ public class PanelOpciones extends JPanel{
 
 	public static void addLog(int from, int to){
 		String dir = "-->";
-		if(from>to) dir= "<--";
+		if(from>to) {
+			dir= "<--";
+			int aux = to;
+			to = from;
+			from = aux;
+		}
 		String log = 
 			String.format(
 					"%10s %s %s\n",
