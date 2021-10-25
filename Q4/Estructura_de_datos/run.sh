@@ -34,6 +34,13 @@ then
 	echo "Exec:"
 	java -cp ./classes/ hanoi.Main
 	exit 0
+elif [[ "$1" == "rockola" ]]
+then
+	echo "Compiling..."
+	javac -d ./classes/ ./src/rockola/*
+	echo "Exec:"
+	java -cp ./classes/ rockola.Main
+	exit 0
 fi
 
 selectProject

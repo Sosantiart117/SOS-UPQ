@@ -1,0 +1,14 @@
+# Playlist ejemplo
+a 1
+s Overthinker
+i 4
+f media/overthinker.wav
+e 
+a 1
+s Spectrum
+i 1
+e 
+a 1
+s Multiverse
+i 2
+e 

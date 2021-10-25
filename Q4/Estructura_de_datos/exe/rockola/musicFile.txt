@@ -1,0 +1,47 @@
+# Archivo prueba 
+# Primer artista
+
+a INZO
+s I'm Dreaming
+s Spectrum
+s Multiverse
+s Angst
+s Overthinker
+f media/overthinker.wav
+
+# Segundo artista 
+
+a Son Lux
+s Alternate Worlds
+s Easy
+s Dream State
+s Slowly
+s Lost it to trying
+
+# Tercer artista 
+
+a NF
+s When I Grow Up
+s The Search
+s My Stress
+s Change
+s Mansion
+
+# Cuarto artista 
+
+a Billy Eilish 
+s lovely
+s bad goy
+s COPYCAT
+s bury a friend
+s Happier Than Ever
+
+# Quinto artista 
+
+a Dennis Lloyd
+s Nevermind
+s GFY
+s Never Go Back
+s Playa(Say That)
+s Leftovers
+
