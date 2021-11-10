@@ -41,6 +41,13 @@ then
 	echo "Exec:"
 	java -cp ./classes/ rockola.Main
 	exit 0
+elif [[ "$1" == "atm" ]]
+then
+	echo "Compiling..."
+	javac -d ./classes/ ./src/atm/*
+	echo "Exec:"
+	java -cp ./classes/ atm.Main
+	exit 0
 fi
 
 selectProject

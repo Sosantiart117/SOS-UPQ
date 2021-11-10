@@ -16,6 +16,10 @@ elif [[ "$1" == "rockola" ]]
 then
 	compress rockola
 	exit 0
+elif [[ "$1" == "atm" ]]
+then
+	compress atm
+	exit 0
 fi
 
 echo -e "slect a project: \n hanoi \n rockola"
