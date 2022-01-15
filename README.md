@@ -21,4 +21,6 @@ Trabajos para la carrera de Sistemas Computacionales en la UPQ.
 	- Estructura de Datos
 		- Java
 - 5to Cuatrimestre
+	- Introduccion a la Programacion Orientada a Objetos
+		- Python
 - 6to Cuatrimestre
