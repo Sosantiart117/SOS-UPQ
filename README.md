@@ -24,3 +24,6 @@ Trabajos para la carrera de Sistemas Computacionales en la UPQ.
 	- Introduccion a la Programacion Orientada a Objetos
 		- Python
 - 6to Cuatrimestre
+	- Matematicas para la ingenieria II (Metodos numéricos)
+		- Python 
+		- C (Tentativamente)
