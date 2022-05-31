@@ -34,14 +34,14 @@ def main():
     N = int(input("Cuantos pasos quiere usar: "))
 
     # No muestres mas de 100 iteraciones
-    if N > 99:
+    if N > 100:
         quiet = True
 
     # Valores iniciales
     val = input("Tiene Valores iniciales [s/N]: ")
     if val in ("s", "S"):
-        y_0 = int(input("El valor de y: "))
-        t_0 = int(input("El valor de t: "))
+        y_0 = eval(input("El valor de y: "))
+        t_0 = eval(input("El valor de t: "))
 
     # Acomoda los limites
     if a > b:
@@ -182,8 +182,9 @@ def err(y, y_exac):
     return 100 * (abs(y - y_exac) / abs(y_exac))
 
 def err_total():
-    return sum(data['error'])/len(data['error'])
-
+    if funcion_e != '':
+        return sum(data['error'])/len(data['error'])
+    return 0
 
 def muestra_err_total():
     if not funcion_e == "":
