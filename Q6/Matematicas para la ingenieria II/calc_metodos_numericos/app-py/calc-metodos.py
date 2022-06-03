@@ -47,7 +47,7 @@ def main():
     if a > b:
         h = a
         a = b
-        b = x
+        b = h
     h = (b - a) / N
 
     # Set funcion
@@ -114,7 +114,7 @@ def metodo(func):
         title(titulo)
         muestra(0, t, y)
         func(t, y)
-        graph(titulo,err_total())
+        graph(titulo, err_total())
         muestra_err_total()
 
     return met_num
@@ -181,10 +181,12 @@ def muestra(i, t, y):
 def err(y, y_exac):
     return 100 * (abs(y - y_exac) / abs(y_exac))
 
+
 def err_total():
-    if funcion_e != '':
-        return sum(data['error'])/len(data['error'])
+    if funcion_e != "":
+        return sum(data["error"]) / len(data["error"])
     return 0
+
 
 def muestra_err_total():
     if not funcion_e == "":
@@ -213,7 +215,7 @@ def save(t, y, error):
 
 
 # GRAPHS
-def graph(title,err):
+def graph(title, err):
     fig = go.Figure()
     # Create and style traces
     fig.add_trace(
@@ -256,7 +258,7 @@ def graph(title,err):
                 text=title,
                 font=dict(family="Fira Code", size=30, color="rgb(37,37,37)"),
                 showarrow=False,
-            ) ,
+            ),
             dict(
                 xref="paper",
                 yref="paper",
@@ -264,10 +266,10 @@ def graph(title,err):
                 y=1.05,
                 xanchor="left",
                 yanchor="top",
-                text="Error total: "+str(round(err,20))+"%",
+                text="Error Promedio: " + str(round(err, 20)) + "%",
                 font=dict(family="Fira Code", size=30, color="rgb(37,37,37)"),
                 showarrow=False,
-            )
+            ),
         ]
     )
     fig.show()
