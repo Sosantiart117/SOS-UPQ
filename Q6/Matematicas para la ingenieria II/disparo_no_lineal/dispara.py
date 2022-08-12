@@ -58,52 +58,9 @@ def f_e(t, y, z):
     # falta calcularla
     return 1
 
-
-def metodo(func):
-    def met_num(t, y, z):
-        titulo = "Metodo de " + str(func.__name__).capitalize()
-        title(titulo)
-        muestra(0, t, y, z)
-        func(t, y, z)
-    return met_num
-
-@metodo
-def euler(t, y):
-    for i in range(1, N + 1):
-        y = y + h * f(t, y)
-        t += h
-        muestra(i, t, y, z)
-
-
-@metodo
-def heun(t, y):
-    for i in range(1, N + 1):
-        y_int = y + h * f(t, y)
-        y = y + ((0.5 * h) * (f(t, y) + f(t + h, y_int)))
-        t += h
-        muestra(i, t, y, z)
-
-
-@metodo
-def runge_kutta_3(t, y):
-    for i in range(1, N + 1):
-        k_1 = h * f(t, y)
-        l_1 = h * f(t, y)
-
-        k_2 = h * (z + (0.5*k_1))
-        l_2 = h * f(t + (0.5 * h), y + (0.5 * k_1), z + (0.5 * l_1) )
-
-        k_3 = h *  (z - l_1 + (2.0 * l_2))
-        l_3 = h * f(t + h, y - k_1 + (2.0 * k_2), z - l_1 + (2.0 * l_2))
-
-        y = y + (1.0 / 6.0) * (k_1 + (4.0 * k_2) + k_3)
-        z = z + (1.0 / 6.0) * (l_1 + (4.0 * l_2) + l_3)
-        t += h
-        muestra(i, t, y, z)
-
-
-@metodo
 def runge_kutta_4(t, y, z):
+    title("Iteraciones por RK4")
+    muestra(0, t, y, z)
     for i in range(1, N + 1):
         k_1 = h * z
         l_1 = h * f(t, y, z)
@@ -192,15 +149,16 @@ def graph(title, err):
             )
         )
         it+=1
-    fig.add_trace(
-        go.Scatter(
-            x=tiro.data["time"],
-            y=tiros[-1].data["exac"],
-            name="F exacta",
-            mode="lines",
-            line_color='rgba(30,150,240,100)'
+    if len(funcion_e) != 0:
+        fig.add_trace(
+            go.Scatter(
+                x=tiro.data["time"],
+                y=tiros[-1].data["exac"],
+                name="F exacta",
+                mode="lines",
+                line_color='rgba(30,150,240,100)'
+            )
         )
-    )
     fig.update_layout(
         annotations=[
             dict(
@@ -268,7 +226,10 @@ def main():
         h = a
         a = b
         b = h
-    N = int((b - a) / h)
+    if N !=0:
+        h = int((b - a) / N)
+    else:
+        N = int((b - a) / h)
 
     # No muestres mas de 100 iteraciones
     if N > 100:
