@@ -1,24 +1,34 @@
 import plotly.graph_objects as go
 import sys, getopt, time
 import math
+import random
 
 # Se inicializa todo en 0
-a = 0
-b = math.pi / 6
-h = 0.01
-alpha = math.sqrt(3)
-beta =  math.sqrt(3)
-N =  ite = 0
+a = b = alpha = beta =  N =  ite = 0
 tk = 1
-max_ite = 100
-tol = 0.01
-# funcion_f = "-4*y"
-funcion_f = "-4*y"
-# funcion_e = "math.sqrt(3)*math.cos(2*t)+(math.sqrt(3)/(2*math.sin(math.pi/3)))*math.sin(2*t)"
-funcion_e = ""
+max_ite = 10
+tol = 0.000000000001
+funcion_f = funcion_e = ""
 debug = False
 quiet = False
 tiros = []
+
+#Problema funcion codigo profe
+h = 0.05
+a = 1
+b = 3
+alpha = 17
+beta = 43/3
+funcion_f = "0.125*(32+2*(t*t*t)-(y*z))"
+
+# Funcion clase
+# h = 0.01
+# a = 0
+# b = math.pi / 6
+# alpha = math.sqrt(3)
+# beta =  math.sqrt(3)
+# funcion_f = "-4*y"
+# funcion_e = "math.sqrt(3.0)*math.cos(2.0*float(t))+(math.sqrt(3.0)/(2.0*math.sin(math.pi/3.0)))*math.sin(2.0*float(t))"
 
 
 class Tiro():
@@ -111,7 +121,7 @@ def err_final():
 def muestra_err_final():
     if not funcion_e == "":
         title(
-            f"\n {ite} tiros - Error Promedio : {round(err_final(),20)} %\n", 
+            f"\n {ite+1} tiros - Error Promedio : {round(err_final(),20)} %\n", 
             "-",
         )
 
@@ -179,11 +189,8 @@ def graph(title, err):
 
 def secante():
     global tk
-    if ite < 2:
-        if tk == 0: 
-            tk = 5
-        else:
-            tk *= 2 
+    if ite < 1:
+        tk *= 2 
     else:
         gt0 = float(tiros[ite-1].data['y'][-1]-beta)
         gt = float(tiros[ite].data['y'][-1]-beta)
@@ -237,15 +244,15 @@ def main():
 
     # tk primera evaluacion
     tk = (beta - alpha)/(b-a)
-
+    if tk == 0: 
+        tk = random.random()
     ite = 0
     while True:
-        title(str(tk))
+        title(f"Tiro: {tk}")
         tiros.append(Tiro(tk))
         runge_kutta_4(a,alpha,tk)
         yb_t = tiros[ite].data['y'][-1]
         diff = abs(yb_t-beta)
-        title(str(diff))
         if diff > tol and ite < max_ite:
             secante()
             ite+=1
