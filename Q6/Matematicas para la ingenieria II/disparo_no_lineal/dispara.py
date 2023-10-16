@@ -14,21 +14,22 @@ quiet = False
 tiros = []
 
 #Problema funcion codigo profe
-h = 0.05
-a = 1
-b = 3
-alpha = 17
-beta = 43/3
-funcion_f = "0.125*(32+2*(t*t*t)-(y*z))"
+# h = 0.05
+# a = 1
+# b = 3
+# alpha = 17
+# beta = 43/3
+# funcion_f = "0.125*(32+2*(t*t*t)-(y*z))"
 
 # Funcion clase
-# h = 0.01
-# a = 0
-# b = math.pi / 6
-# alpha = math.sqrt(3)
-# beta =  math.sqrt(3)
-# funcion_f = "-4*y"
-# funcion_e = "math.sqrt(3.0)*math.cos(2.0*float(t))+(math.sqrt(3.0)/(2.0*math.sin(math.pi/3.0)))*math.sin(2.0*float(t))"
+h = 0.01
+a = 0
+b = math.pi / 6
+alpha = math.sqrt(3)
+beta =  math.sqrt(3)
+funcion_f = "-4*y"
+funcion_e = "math.sqrt(3.0)*math.cos(2.0*float(t))+(math.sqrt(3.0)/(2.0*math.sin(math.pi/3.0)))*math.sin(2.0*float(t))"
+# funcion_e = "math.sqrt(3)* math.cos(2*a) + math.sqrt(3)*math.sin(2*a)"
 
 
 class Tiro():

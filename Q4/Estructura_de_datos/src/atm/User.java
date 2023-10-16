@@ -11,7 +11,7 @@ public class User implements Serializable{
 	private ArrayList<Move> Moves;
 
 	public User(String userName, int pin){
-		this(userName, pin, 3500);
+		this(userName, pin, 0);
 	}
 	 
 	public User(String userName, int pin, float saldo) {

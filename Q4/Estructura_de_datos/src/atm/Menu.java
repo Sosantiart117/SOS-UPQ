@@ -5,7 +5,7 @@ public class Menu extends AtmPanel{
 	public Menu(Atm cajero) {
 		super(cajero);
 
-		String[] ops = {"Retirar","Depositar","Pagar",
+		String[] ops = {"Retirar","Depositar",
 				"Consultar Saldo","Consultar Movimeintos",
 				"Salir"};
 		setOps(ops);
@@ -22,15 +22,12 @@ public class Menu extends AtmPanel{
 						depositar();
 						break;
 					case 3:
-						pagar();
-						break;
-					case 4:
 						saldo();
 						break;
-					case 5:
+					case 4:
 						movimientos();
 						break;
-					case 6:
+					case 5:
 						salir();
 						break;
 			}
@@ -41,7 +38,7 @@ public class Menu extends AtmPanel{
 		setTitle("Menu: "+Cajero.Usuario.getName());
 		// keys
 		Cajero.Pad.enableNums(false);
-		int[] enaKeys = {1,2,3,4,5,6};
+		int[] enaKeys = {1,2,3,4,5};
 		Cajero.Pad.enableNums(true,enaKeys);
 	}
 
